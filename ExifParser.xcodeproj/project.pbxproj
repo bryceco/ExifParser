@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		02D02EC129CE5483005E6BB8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D02EC029CE5483005E6BB8 /* main.swift */; };
+		02D02ED229CE54CE005E6BB8 /* ExifGeolocation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 02D02EC829CE54CE005E6BB8 /* ExifGeolocation.mm */; };
+		02D02ED329CE54CE005E6BB8 /* EXIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D02EC929CE54CE005E6BB8 /* EXIF.swift */; };
+		02D02ED529CE54CE005E6BB8 /* exif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D02ECE29CE54CE005E6BB8 /* exif.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,16 @@
 /* Begin PBXFileReference section */
 		02D02EBD29CE5483005E6BB8 /* ExifParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ExifParser; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D02EC029CE5483005E6BB8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		02D02EC729CE54CE005E6BB8 /* ExifParser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExifParser-Bridging-Header.h"; sourceTree = "<group>"; };
+		02D02EC829CE54CE005E6BB8 /* ExifGeolocation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExifGeolocation.mm; sourceTree = "<group>"; };
+		02D02EC929CE54CE005E6BB8 /* EXIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EXIF.swift; sourceTree = "<group>"; };
+		02D02ECA29CE54CE005E6BB8 /* ExifGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExifGeolocation.h; sourceTree = "<group>"; };
+		02D02ECC29CE54CE005E6BB8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		02D02ECE29CE54CE005E6BB8 /* exif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exif.cpp; sourceTree = "<group>"; };
+		02D02ECF29CE54CE005E6BB8 /* CONTRIBUTORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS; sourceTree = "<group>"; };
+		02D02ED029CE54CE005E6BB8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		02D02ED129CE54CE005E6BB8 /* exif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exif.h; sourceTree = "<group>"; };
+		02D02ED629CFA99D005E6BB8 /* ExifParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExifParser.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +70,27 @@
 		02D02EBF29CE5483005E6BB8 /* ExifParser */ = {
 			isa = PBXGroup;
 			children = (
+				02D02ED629CFA99D005E6BB8 /* ExifParser.entitlements */,
+				02D02ECB29CE54CE005E6BB8 /* easyexif */,
+				02D02EC929CE54CE005E6BB8 /* EXIF.swift */,
+				02D02ECA29CE54CE005E6BB8 /* ExifGeolocation.h */,
+				02D02EC829CE54CE005E6BB8 /* ExifGeolocation.mm */,
 				02D02EC029CE5483005E6BB8 /* main.swift */,
+				02D02EC729CE54CE005E6BB8 /* ExifParser-Bridging-Header.h */,
 			);
 			path = ExifParser;
+			sourceTree = "<group>";
+		};
+		02D02ECB29CE54CE005E6BB8 /* easyexif */ = {
+			isa = PBXGroup;
+			children = (
+				02D02ECC29CE54CE005E6BB8 /* LICENSE */,
+				02D02ECE29CE54CE005E6BB8 /* exif.cpp */,
+				02D02ECF29CE54CE005E6BB8 /* CONTRIBUTORS */,
+				02D02ED029CE54CE005E6BB8 /* README.md */,
+				02D02ED129CE54CE005E6BB8 /* exif.h */,
+			);
+			path = easyexif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +125,7 @@
 				TargetAttributes = {
 					02D02EBC29CE5483005E6BB8 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -120,7 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D02ED229CE54CE005E6BB8 /* ExifGeolocation.mm in Sources */,
 				02D02EC129CE5483005E6BB8 /* main.swift in Sources */,
+				02D02ED529CE54CE005E6BB8 /* exif.cpp in Sources */,
+				02D02ED329CE54CE005E6BB8 /* EXIF.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +278,20 @@
 		02D02EC529CE5483005E6BB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ExifParser/ExifParser.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MKTTC6734C;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExifParser/ExifParser-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,10 +299,19 @@
 		02D02EC629CE5483005E6BB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ExifParser/ExifParser.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MKTTC6734C;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExifParser/ExifParser-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
